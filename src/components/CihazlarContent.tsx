@@ -19,7 +19,7 @@ const brands: Brand[] = [
     name: "Sciex",
     initials: "SX",
     logo: "https://akabiotech.com/wp-content/uploads/2020/03/sciex.png",
-    url: "https://sciex.com",
+    url: "https://sciex.com/products/capillary-electrophoresis",
     tr: "Kapiler Elektroforez ürünleri Türkiye yetkili temsilcisi — biyofarma ve genetik analizlerde güvenilir çözümler",
     en: "Authorized representative for Capillary Electrophoresis products in Turkey — reliable solutions for biopharma and genetic analysis",
   },

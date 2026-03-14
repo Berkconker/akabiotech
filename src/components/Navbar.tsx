@@ -61,7 +61,7 @@ export default function Navbar() {
 
   const links = navLinks[lang];
   const drops = dropdownLinks[lang];
-  const dropLabel = lang === "tr" ? "Distribütörler" : "Distributors";
+  const dropLabel = lang === "tr" ? "Temsilcilikler" : "Distributorships";
 
   const isDropActive = pathname.startsWith("/cozum-ortaklari");
 

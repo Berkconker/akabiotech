@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { LanguageProvider } from "@/context/LanguageContext";
 import Navbar from "@/components/Navbar";
 import About from "@/components/About";
 import Footer from "@/components/Footer";
@@ -11,12 +10,12 @@ export const metadata: Metadata = {
 
 export default function HakkimizdaPage() {
   return (
-    <LanguageProvider>
+    <>
       <Navbar />
       <main>
         <About />
       </main>
       <Footer />
-    </LanguageProvider>
+    </>
   );
 }

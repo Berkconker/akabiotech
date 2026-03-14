@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { LanguageProvider } from "@/context/LanguageContext";
 import Navbar from "@/components/Navbar";
 import ArgeContent from "@/components/ArgeContent";
 import Footer from "@/components/Footer";
@@ -12,12 +11,12 @@ export const metadata: Metadata = {
 
 export default function ArgePage() {
   return (
-    <LanguageProvider>
+    <>
       <Navbar />
       <main>
         <ArgeContent />
       </main>
       <Footer />
-    </LanguageProvider>
+    </>
   );
 }

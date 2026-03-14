@@ -7,7 +7,7 @@ import { useLang } from "@/context/LanguageContext";
 
 const content = {
   tr: {
-    badge: "Distribütörlerimiz",
+    badge: "Temsilciliklerimiz",
     title: "Ürün & Hizmet Portfolyomuz",
     sub: "Alanında lider uluslararası markalarla kurduğumuz iş birlikleriyle araştırmalarınıza eksiksiz destek sağlıyoruz.",
     cards: [
@@ -38,7 +38,7 @@ const content = {
     ],
   },
   en: {
-    badge: "Our Distributors",
+    badge: "Our Distributorships",
     title: "Product & Service Portfolio",
     sub: "Through partnerships with world-leading international brands, we provide comprehensive support for your research.",
     cards: [

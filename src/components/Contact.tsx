@@ -54,25 +54,6 @@ export default function Contact() {
           </motion.h2>
         </div>
 
-        {/* Map */}
-        <motion.div
-          className="rounded-2xl overflow-hidden border border-[#dce8f7] shadow-sm mb-8"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3006.2!2d28.9697!3d41.0936!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cab5b6e1c3f6c7%3A0x5b5b5b5b5b5b5b5b!2sDAP%20Bumerang%20Ofis!5e0!3m2!1str!2str!4v1"
-            width="100%"
-            height="400"
-            style={{ border: 0, borderRadius: "12px" }}
-            allowFullScreen
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-          />
-        </motion.div>
-
         {/* Info card */}
         <motion.div
           className="bg-[#0a2444] rounded-2xl p-8 text-white"
@@ -146,6 +127,25 @@ export default function Contact() {
               {t.linkedin}
             </span>
           </a>
+        </motion.div>
+
+        {/* Map */}
+        <motion.div
+          className="rounded-2xl overflow-hidden border border-[#dce8f7] shadow-sm mt-8"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.15 }}
+        >
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3007.8234!2d28.97665!3d41.08456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cab6f7e5c5c5c5%3A0xabcdef1234567890!2sMerkez%20Mahallesi%20Se%C3%A7kin%20Sokak%20No%3A3%2F67%20DAP%20Bumerang%20Ofis%2C%20Ka%C4%9F%C4%B1thane%2C%20%C4%B0stanbul!5e0!3m2!1str!2str!4v1710000000000!5m2!1str!2str"
+            width="100%"
+            height="450"
+            style={{ border: 0, borderRadius: "12px" }}
+            allowFullScreen
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+          />
         </motion.div>
       </div>
     </section>

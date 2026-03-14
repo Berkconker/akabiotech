@@ -29,10 +29,10 @@ const content = {
       {
         title: "İletişim",
         links: [
-          { label: "+90 216 555 12 34", href: "tel:+902165551234" },
+          { label: "+90 (212) 346 20 19", href: "tel:+902123462019" },
           { label: "info@akabiyoteknoloji.com", href: "mailto:info@akabiyoteknoloji.com" },
           { label: "Teknopark İstanbul", href: "#contact" },
-          { label: "LinkedIn", href: "https://linkedin.com" },
+          { label: "LinkedIn", href: "https://www.linkedin.com/company/aka-biotechnology/" },
         ],
       },
     ],
@@ -62,10 +62,10 @@ const content = {
       {
         title: "Contact",
         links: [
-          { label: "+90 216 555 12 34", href: "tel:+902165551234" },
+          { label: "+90 (212) 346 20 19", href: "tel:+902123462019" },
           { label: "info@akabiotechnology.com", href: "mailto:info@akabiotechnology.com" },
           { label: "Technopark Istanbul", href: "#contact" },
-          { label: "LinkedIn", href: "https://linkedin.com" },
+          { label: "LinkedIn", href: "https://www.linkedin.com/company/aka-biotechnology/" },
         ],
       },
     ],
@@ -79,7 +79,7 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-[#1a3a2a] border-t border-white/10">
+    <footer className="bg-[#0a2444] border-t border-white/10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Main */}
         <div className="py-16 grid sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">
@@ -93,66 +93,47 @@ export default function Footer() {
           >
             {/* Logo */}
             <a href="#" className="flex items-center gap-3 group w-fit">
-              <div className="w-10 h-10 bg-[#2d7a4f] rounded-lg flex items-center justify-center">
-                <svg
-                  width="22"
-                  height="22"
-                  viewBox="0 0 20 20"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
+              <div className="w-10 h-10 bg-[#1a5fa5] rounded-lg flex items-center justify-center">
+                <svg width="22" height="22" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <circle cx="10" cy="5" r="2.5" fill="white" />
                   <circle cx="5" cy="14" r="2.5" fill="white" opacity="0.7" />
                   <circle cx="15" cy="14" r="2.5" fill="white" opacity="0.7" />
-                  <line
-                    x1="10" y1="5" x2="5" y2="14"
-                    stroke="white" strokeWidth="1.5" opacity="0.5"
-                  />
-                  <line
-                    x1="10" y1="5" x2="15" y2="14"
-                    stroke="white" strokeWidth="1.5" opacity="0.5"
-                  />
-                  <line
-                    x1="5" y1="14" x2="15" y2="14"
-                    stroke="white" strokeWidth="1.5" opacity="0.5"
-                  />
+                  <line x1="10" y1="5" x2="5" y2="14" stroke="white" strokeWidth="1.5" opacity="0.5" />
+                  <line x1="10" y1="5" x2="15" y2="14" stroke="white" strokeWidth="1.5" opacity="0.5" />
+                  <line x1="5" y1="14" x2="15" y2="14" stroke="white" strokeWidth="1.5" opacity="0.5" />
                 </svg>
               </div>
               <div>
-                <span className="font-serif text-lg font-bold text-white leading-tight block">
-                  AKA
-                </span>
-                <span className="font-sans text-xs tracking-widest uppercase text-[#7dd4a8] leading-tight block">
+                <span className="font-serif text-lg font-bold text-white leading-tight block">AKA</span>
+                <span className="font-sans text-xs tracking-widest uppercase text-[#7ab3e0] leading-tight block">
                   Biyoteknoloji
                 </span>
               </div>
             </a>
 
-            <p className="font-sans text-sm text-white/50 leading-relaxed max-w-xs">
-              {t.tagline}
-            </p>
+            <p className="font-sans text-sm text-white/50 leading-relaxed max-w-xs">{t.tagline}</p>
 
             {/* Social icons */}
             <div className="flex items-center gap-3">
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/company/aka-biotechnology/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 bg-white/8 hover:bg-[#2d7a4f] rounded-lg flex items-center justify-center transition-all duration-200 text-white/50 hover:text-white"
+                className="w-9 h-9 bg-white/8 hover:bg-[#1a5fa5] rounded-lg flex items-center justify-center transition-all duration-200 text-white/50 hover:text-white"
                 aria-label="LinkedIn"
               >
                 <Linkedin size={15} />
               </a>
               <a
                 href="mailto:info@akabiyoteknoloji.com"
-                className="w-9 h-9 bg-white/8 hover:bg-[#2d7a4f] rounded-lg flex items-center justify-center transition-all duration-200 text-white/50 hover:text-white"
+                className="w-9 h-9 bg-white/8 hover:bg-[#1a5fa5] rounded-lg flex items-center justify-center transition-all duration-200 text-white/50 hover:text-white"
                 aria-label="Email"
               >
                 <Mail size={15} />
               </a>
               <a
-                href="tel:+902165551234"
-                className="w-9 h-9 bg-white/8 hover:bg-[#2d7a4f] rounded-lg flex items-center justify-center transition-all duration-200 text-white/50 hover:text-white"
+                href="tel:+902123462019"
+                className="w-9 h-9 bg-white/8 hover:bg-[#1a5fa5] rounded-lg flex items-center justify-center transition-all duration-200 text-white/50 hover:text-white"
                 aria-label="Phone"
               >
                 <Phone size={15} />
@@ -170,7 +151,7 @@ export default function Footer() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1 + colIdx * 0.08 }}
             >
-              <h4 className="font-sans text-xs font-semibold tracking-widest text-[#7dd4a8] uppercase">
+              <h4 className="font-sans text-xs font-semibold tracking-widest text-[#7ab3e0] uppercase">
                 {col.title}
               </h4>
               <ul className="flex flex-col gap-3">
@@ -203,16 +184,10 @@ export default function Footer() {
             © {year} AKA Biyoteknoloji. {t.copyright}
           </p>
           <div className="flex items-center gap-5">
-            <a
-              href="#"
-              className="font-sans text-xs text-white/35 hover:text-white/60 transition-colors"
-            >
+            <a href="#" className="font-sans text-xs text-white/35 hover:text-white/60 transition-colors">
               {lang === "tr" ? "Gizlilik Politikası" : "Privacy Policy"}
             </a>
-            <a
-              href="#"
-              className="font-sans text-xs text-white/35 hover:text-white/60 transition-colors"
-            >
+            <a href="#" className="font-sans text-xs text-white/35 hover:text-white/60 transition-colors">
               {lang === "tr" ? "Kullanım Koşulları" : "Terms of Use"}
             </a>
           </div>

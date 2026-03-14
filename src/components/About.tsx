@@ -70,18 +70,17 @@ const content = {
 export default function About() {
   const { lang } = useLang();
   const t = content[lang];
-
   const titleLines = t.title.split("\n");
 
   return (
-    <section id="about" className="py-24 bg-[#1a3a2a] overflow-hidden">
+    <section id="about" className="py-24 bg-[#0a2444] overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-16 items-start">
           {/* LEFT — Story */}
           <div className="flex flex-col gap-8">
             <div>
               <motion.span
-                className="inline-block font-sans text-sm font-semibold tracking-widest text-[#7dd4a8] uppercase mb-4"
+                className="inline-block font-sans text-sm font-semibold tracking-widest text-[#7ab3e0] uppercase mb-4"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -98,7 +97,7 @@ export default function About() {
               >
                 {titleLines.map((line, i) => (
                   <span key={i}>
-                    {i === 0 ? line : <span className="text-[#7dd4a8]">{line}</span>}
+                    {i === 0 ? line : <span className="text-[#7ab3e0]">{line}</span>}
                     {i < titleLines.length - 1 && <br />}
                   </span>
                 ))}
@@ -128,8 +127,8 @@ export default function About() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.4 }}
             >
-              <div className="h-px flex-1 bg-gradient-to-r from-[#2d7a4f] to-transparent" />
-              <span className="font-serif text-5xl text-[#2d7a4f] font-bold">
+              <div className="h-px flex-1 bg-gradient-to-r from-[#1a5fa5] to-transparent" />
+              <span className="font-serif text-5xl text-[#1a5fa5] font-bold">
                 2006
               </span>
             </motion.div>
@@ -142,23 +141,19 @@ export default function About() {
               return (
                 <motion.div
                   key={i}
-                  className="bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 hover:border-[#2d7a4f]/40 transition-all duration-300 flex flex-col gap-4 group"
+                  className="bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 hover:border-[#1a5fa5]/40 transition-all duration-300 flex flex-col gap-4 group"
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-40px" }}
                   transition={{ duration: 0.5, delay: i * 0.1 }}
                   whileHover={{ scale: 1.02 }}
                 >
-                  <div className="w-10 h-10 bg-[#2d7a4f]/20 rounded-lg flex items-center justify-center group-hover:bg-[#2d7a4f]/40 transition-colors">
-                    <Icon size={18} className="text-[#7dd4a8]" />
+                  <div className="w-10 h-10 bg-[#1a5fa5]/20 rounded-lg flex items-center justify-center group-hover:bg-[#1a5fa5]/40 transition-colors">
+                    <Icon size={18} className="text-[#7ab3e0]" />
                   </div>
                   <div>
-                    <h3 className="font-serif text-lg text-white mb-2">
-                      {pillar.title}
-                    </h3>
-                    <p className="font-sans text-sm text-white/55 leading-relaxed">
-                      {pillar.desc}
-                    </p>
+                    <h3 className="font-serif text-lg text-white mb-2">{pillar.title}</h3>
+                    <p className="font-sans text-sm text-white/55 leading-relaxed">{pillar.desc}</p>
                   </div>
                 </motion.div>
               );

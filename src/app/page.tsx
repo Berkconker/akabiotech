@@ -1,9 +1,7 @@
 import { LanguageProvider } from "@/context/LanguageContext";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import ResearchAreas from "@/components/ResearchAreas";
-import About from "@/components/About";
-import Partners from "@/components/Partners";
+import CozumOrtaklari from "@/components/CozumOrtaklari";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
@@ -13,9 +11,7 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
-        <ResearchAreas />
-        <About />
-        <Partners />
+        <CozumOrtaklari />
         <Contact />
       </main>
       <Footer />

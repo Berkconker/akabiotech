@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { ExternalLink } from "lucide-react";
 import { useLang } from "@/context/LanguageContext";
@@ -7,6 +8,7 @@ import { useLang } from "@/context/LanguageContext";
 interface Brand {
   name: string;
   initials: string;
+  logo: string;
   url: string;
   color: string;
   tr: string;
@@ -17,6 +19,7 @@ const brands: Brand[] = [
   {
     name: "Omega Bioservices",
     initials: "OB",
+    logo: "https://akabiotech.com/wp-content/uploads/2020/03/omega.png",
     url: "https://omegabioservices.com",
     color: "#0a2444",
     tr: "Yeni nesil DNA/RNA dizileme (NGS) ve biyoinformatik analiz hizmetleri",
@@ -25,6 +28,7 @@ const brands: Brand[] = [
   {
     name: "Diagenode",
     initials: "DG",
+    logo: "https://akabiotech.com/wp-content/uploads/2020/03/diagen.png",
     url: "https://diagenode.com",
     color: "#1a5fa5",
     tr: "Epigenetik araştırmalarda valide ve güvenilir çözümler",
@@ -33,6 +37,7 @@ const brands: Brand[] = [
   {
     name: "Biomers",
     initials: "BM",
+    logo: "https://akabiotech.com/wp-content/uploads/2020/03/biomer.png",
     url: "https://biomers.net",
     color: "#2d7fc5",
     tr: "Özel oligonükleotid, DNA ve RNA sentez hizmetleri",
@@ -41,12 +46,37 @@ const brands: Brand[] = [
   {
     name: "JPT",
     initials: "JP",
+    logo: "https://akabiotech.com/wp-content/uploads/2020/03/jpt.png",
     url: "https://jpt.com",
     color: "#0a2444",
     tr: "İmmünoloji ve proteomiks araştırmaları için peptid havuzu sentezi",
     en: "Peptide pool synthesis for immunology and proteomics research",
   },
 ];
+
+function BrandLogo({ brand }: { brand: Brand }) {
+  const [failed, setFailed] = useState(false);
+  if (failed) {
+    return (
+      <div
+        className="w-16 h-12 rounded-lg flex items-center justify-center text-white font-serif text-sm font-bold flex-shrink-0"
+        style={{ backgroundColor: brand.color }}
+      >
+        {brand.initials}
+      </div>
+    );
+  }
+  return (
+    <div className="w-16 h-12 bg-white border border-[#dce8f7] rounded-lg p-2 flex items-center justify-center flex-shrink-0">
+      <img
+        src={brand.logo}
+        alt={brand.name}
+        className="max-h-8 w-auto object-contain"
+        onError={() => setFailed(true)}
+      />
+    </div>
+  );
+}
 
 export default function HizmetlerContent() {
   const { lang } = useLang();
@@ -67,7 +97,7 @@ export default function HizmetlerContent() {
                 {lang === "tr" ? "Ana Sayfa" : "Home"}
               </a>
               <span>/</span>
-              <span>{lang === "tr" ? "Çözüm Ortakları" : "Solution Partners"}</span>
+              <span>{lang === "tr" ? "Distribütörler" : "Distributors"}</span>
               <span>/</span>
               <span className="text-[#7ab3e0]">
                 {lang === "tr" ? "Hizmetler" : "Services"}
@@ -103,18 +133,13 @@ export default function HizmetlerContent() {
 
                 <div className="p-7 flex flex-col gap-5">
                   <div className="flex items-center gap-4">
-                    <div
-                      className="w-12 h-12 rounded-xl flex items-center justify-center text-white font-serif text-sm font-bold flex-shrink-0"
-                      style={{ backgroundColor: brand.color }}
-                    >
-                      {brand.initials}
-                    </div>
+                    <BrandLogo brand={brand} />
                     <div>
                       <h3 className="font-serif text-lg text-[#0a2444] leading-tight">
                         {brand.name}
                       </h3>
                       <span className="font-sans text-xs text-[#1a5fa5]/70">
-                        {brand.url.replace("https://", "")}
+                        {brand.url.replace(/^https?:\/\//, "")}
                       </span>
                     </div>
                   </div>

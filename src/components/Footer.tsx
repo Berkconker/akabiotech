@@ -11,27 +11,27 @@ const content = {
       {
         title: "Şirket",
         links: [
-          { label: "Ana Sayfa", href: "#" },
-          { label: "Hakkımızda", href: "#about" },
-          { label: "Ekibimiz", href: "#about" },
-          { label: "Kariyer", href: "#contact" },
+          { label: "Ana Sayfa", href: "/" },
+          { label: "Hakkımızda", href: "/hakkimizda" },
+          { label: "Ekibimiz", href: "/hakkimizda" },
+          { label: "Kariyer", href: "/iletisim" },
         ],
       },
       {
         title: "Hizmetler",
         links: [
-          { label: "Hücre Araştırmaları", href: "#research" },
-          { label: "Protein Araştırmaları", href: "#research" },
-          { label: "Genetik Araştırmalar", href: "#research" },
-          { label: "Proje Çözümleri", href: "#research" },
+          { label: "Hücre Araştırmaları", href: "/calisma-alanlari" },
+          { label: "Protein Araştırmaları", href: "/calisma-alanlari" },
+          { label: "Genetik Araştırmalar", href: "/calisma-alanlari" },
+          { label: "Proje Çözümleri", href: "/calisma-alanlari" },
         ],
       },
       {
         title: "İletişim",
         links: [
           { label: "+90 (212) 346 20 19", href: "tel:+902123462019" },
-          { label: "info@akabiyoteknoloji.com", href: "mailto:info@akabiyoteknoloji.com" },
-          { label: "Teknopark İstanbul", href: "#contact" },
+          { label: "info@akabiotech.com", href: "mailto:info@akabiotech.com" },
+          { label: "Teknopark İstanbul", href: "/iletisim" },
           { label: "LinkedIn", href: "https://www.linkedin.com/company/aka-biotechnology/" },
         ],
       },
@@ -44,27 +44,27 @@ const content = {
       {
         title: "Company",
         links: [
-          { label: "Home", href: "#" },
-          { label: "About Us", href: "#about" },
-          { label: "Our Team", href: "#about" },
-          { label: "Careers", href: "#contact" },
+          { label: "Home", href: "/" },
+          { label: "About Us", href: "/hakkimizda" },
+          { label: "Our Team", href: "/hakkimizda" },
+          { label: "Careers", href: "/iletisim" },
         ],
       },
       {
         title: "Services",
         links: [
-          { label: "Cell Research", href: "#research" },
-          { label: "Protein Research", href: "#research" },
-          { label: "Genetic Research", href: "#research" },
-          { label: "Project Solutions", href: "#research" },
+          { label: "Cell Research", href: "/calisma-alanlari" },
+          { label: "Protein Research", href: "/calisma-alanlari" },
+          { label: "Genetic Research", href: "/calisma-alanlari" },
+          { label: "Project Solutions", href: "/calisma-alanlari" },
         ],
       },
       {
         title: "Contact",
         links: [
           { label: "+90 (212) 346 20 19", href: "tel:+902123462019" },
-          { label: "info@akabiotechnology.com", href: "mailto:info@akabiotechnology.com" },
-          { label: "Technopark Istanbul", href: "#contact" },
+          { label: "info@akabiotech.com", href: "mailto:info@akabiotech.com" },
+          { label: "Technopark Istanbul", href: "/iletisim" },
           { label: "LinkedIn", href: "https://www.linkedin.com/company/aka-biotechnology/" },
         ],
       },
@@ -92,7 +92,7 @@ export default function Footer() {
             transition={{ duration: 0.5 }}
           >
             {/* Logo */}
-            <a href="#" className="flex items-center gap-3 group w-fit">
+            <a href="/" className="flex items-center gap-3 group w-fit">
               <div className="w-10 h-10 bg-[#1a5fa5] rounded-lg flex items-center justify-center">
                 <svg width="22" height="22" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <circle cx="10" cy="5" r="2.5" fill="white" />
@@ -125,7 +125,7 @@ export default function Footer() {
                 <Linkedin size={15} />
               </a>
               <a
-                href="mailto:info@akabiyoteknoloji.com"
+                href="mailto:info@akabiotech.com"
                 className="w-9 h-9 bg-white/8 hover:bg-[#1a5fa5] rounded-lg flex items-center justify-center transition-all duration-200 text-white/50 hover:text-white"
                 aria-label="Email"
               >

@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { ExternalLink } from "lucide-react";
 import { useLang } from "@/context/LanguageContext";
@@ -7,6 +8,7 @@ import { useLang } from "@/context/LanguageContext";
 interface Brand {
   name: string;
   initials: string;
+  logo: string;
   url: string;
   color: string;
   tr: string;
@@ -17,7 +19,8 @@ const brands: Brand[] = [
   {
     name: "Sony Biotechnology",
     initials: "SB",
-    url: "https://sonybiotechnology.com",
+    logo: "https://akabiotech.com/wp-content/uploads/2020/04/ahah.png",
+    url: "https://www.sonybiotechnology.com/rmea/",
     color: "#0a2444",
     tr: "Flow cytometry antikor ve kit panelleri ile hücre analiz çözümleri",
     en: "Flow cytometry antibody and kit panels for cell analysis solutions",
@@ -25,7 +28,8 @@ const brands: Brand[] = [
   {
     name: "Omega Bio-Tek",
     initials: "OB",
-    url: "https://omegabiotek.com",
+    logo: "https://akabiotech.com/wp-content/uploads/2020/03/omega-bio.png",
+    url: "https://www.omegabiotek.com",
     color: "#1a5fa5",
     tr: "Nükleik asit izolasyonunda eksiksiz kit paneli ve sarf malzemeleri",
     en: "Complete kit panels and consumables for nucleic acid isolation",
@@ -33,15 +37,17 @@ const brands: Brand[] = [
   {
     name: "Agrisera",
     initials: "AG",
-    url: "https://agrisera.com",
+    logo: "https://akabiotech.com/wp-content/uploads/2020/03/agrisera.png",
+    url: "https://www.agrisera.com",
     color: "#2d7fc5",
-    tr: "Bitki ve alg araştırmaları için mono ve poliklonal antikorlar",
+    tr: "Bitki ve alg çalışmaları için mono-poliklonal antikorlar",
     en: "Mono- and polyclonal antibodies for plant and algae research",
   },
   {
     name: "Biomers",
     initials: "BM",
-    url: "https://biomers.net",
+    logo: "https://akabiotech.com/wp-content/uploads/2020/03/biomer.png",
+    url: "https://www.biomers.net/",
     color: "#0a2444",
     tr: "Oligonükleotid, DNA ve RNA sentez hizmetleri ve kitleri",
     en: "Oligonucleotide, DNA and RNA synthesis services and kits",
@@ -49,20 +55,73 @@ const brands: Brand[] = [
   {
     name: "JPT",
     initials: "JP",
-    url: "https://jpt.com",
+    logo: "https://akabiotech.com/wp-content/uploads/2020/03/jpt.png",
+    url: "https://www.jpt.com/",
     color: "#1a5fa5",
-    tr: "İmmünoloji ve proteomiks araştırmaları için peptid havuzları",
-    en: "Peptide pools for immunology and proteomics research",
+    tr: "İmmünoloji, proteomiks, enzim profillemesi için peptid havuzları",
+    en: "Peptide pools for immunology, proteomics and enzyme profiling",
   },
   {
     name: "Diagenode",
     initials: "DG",
-    url: "https://diagenode.com",
+    logo: "https://akabiotech.com/wp-content/uploads/2020/03/diagen.png",
+    url: "https://www.diagenode.com/en",
     color: "#2d7fc5",
-    tr: "Epigenetik araştırmalarda valide antibody ve kit çözümleri",
-    en: "Validated antibody and kit solutions for epigenetic research",
+    tr: "Epigenetik araştırmalarda valide ve eşsiz çözümler",
+    en: "Validated and unique solutions for epigenetic research",
+  },
+  {
+    name: "Genet Bio",
+    initials: "GB",
+    logo: "https://akabiotech.com/wp-content/uploads/2020/04/geno.jpg",
+    url: "http://www.genetbio.co.kr/en/index.html",
+    color: "#0a2444",
+    tr: "DNA amplifikasyon ve revers transkripsiyon kitleri",
+    en: "DNA amplification and reverse transcription kits",
+  },
+  {
+    name: "ArcticZymes",
+    initials: "AZ",
+    logo: "https://akabiotech.com/wp-content/uploads/2020/03/arctic.png",
+    url: "https://arcticzymes.com/",
+    color: "#1a5fa5",
+    tr: "Soğuğa adapte ve sıcaklıkla inaktive olan enzimler",
+    en: "Cold-adapted and heat-inactivatable enzymes",
+  },
+  {
+    name: "Genovis",
+    initials: "GV",
+    logo: "https://akabiotech.com/wp-content/uploads/2024/03/genosis.png",
+    url: "https://www.genovis.com/",
+    color: "#2d7fc5",
+    tr: "Akıllı Enzimler ve biyofarma karakterizasyon kitleri",
+    en: "SmartEnzymes and biopharma characterization kits",
   },
 ];
+
+function BrandLogo({ brand }: { brand: Brand }) {
+  const [failed, setFailed] = useState(false);
+  if (failed) {
+    return (
+      <div
+        className="w-16 h-12 rounded-lg flex items-center justify-center text-white font-serif text-sm font-bold flex-shrink-0"
+        style={{ backgroundColor: brand.color }}
+      >
+        {brand.initials}
+      </div>
+    );
+  }
+  return (
+    <div className="w-16 h-12 bg-white border border-[#dce8f7] rounded-lg p-2 flex items-center justify-center flex-shrink-0">
+      <img
+        src={brand.logo}
+        alt={brand.name}
+        className="max-h-8 w-auto object-contain"
+        onError={() => setFailed(true)}
+      />
+    </div>
+  );
+}
 
 export default function SarfVeKitlerContent() {
   const { lang } = useLang();
@@ -83,7 +142,7 @@ export default function SarfVeKitlerContent() {
                 {lang === "tr" ? "Ana Sayfa" : "Home"}
               </a>
               <span>/</span>
-              <span>{lang === "tr" ? "Çözüm Ortakları" : "Solution Partners"}</span>
+              <span>{lang === "tr" ? "Distribütörler" : "Distributors"}</span>
               <span>/</span>
               <span className="text-[#7ab3e0]">
                 {lang === "tr" ? "Sarf ve Kitler" : "Consumables & Kits"}
@@ -119,18 +178,13 @@ export default function SarfVeKitlerContent() {
 
                 <div className="p-7 flex flex-col gap-5">
                   <div className="flex items-center gap-4">
-                    <div
-                      className="w-12 h-12 rounded-xl flex items-center justify-center text-white font-serif text-sm font-bold flex-shrink-0"
-                      style={{ backgroundColor: brand.color }}
-                    >
-                      {brand.initials}
-                    </div>
+                    <BrandLogo brand={brand} />
                     <div>
                       <h3 className="font-serif text-lg text-[#0a2444] leading-tight">
                         {brand.name}
                       </h3>
                       <span className="font-sans text-xs text-[#1a5fa5]/70">
-                        {brand.url.replace("https://", "")}
+                        {brand.url.replace(/^https?:\/\//, "")}
                       </span>
                     </div>
                   </div>

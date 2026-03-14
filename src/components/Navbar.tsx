@@ -25,14 +25,16 @@ const navLinks = {
     { label: "Ana Sayfa", href: "/" },
     { label: "Hakkımızda", href: "/hakkimizda" },
     { label: "Çalışma Alanları", href: "/calisma-alanlari" },
+    { label: "Ar-Ge", href: "/ar-ge" },
     // "Çözüm Ortakları" handled separately as dropdown
-    { label: "İletişim", href: "/#contact" },
+    { label: "İletişim", href: "/iletisim" },
   ],
   en: [
     { label: "Home", href: "/" },
     { label: "About Us", href: "/hakkimizda" },
     { label: "Research Areas", href: "/calisma-alanlari" },
-    { label: "Contact", href: "/#contact" },
+    { label: "R&D", href: "/ar-ge" },
+    { label: "Contact", href: "/iletisim" },
   ],
 };
 
@@ -59,7 +61,7 @@ export default function Navbar() {
 
   const links = navLinks[lang];
   const drops = dropdownLinks[lang];
-  const dropLabel = lang === "tr" ? "Çözüm Ortakları" : "Solution Partners";
+  const dropLabel = lang === "tr" ? "Distribütörler" : "Distributors";
 
   const isDropActive = pathname.startsWith("/cozum-ortaklari");
 
@@ -109,7 +111,7 @@ export default function Navbar() {
             transition={{ duration: 0.5, delay: 0.1 }}
           >
             {/* Regular links before dropdown */}
-            {links.slice(0, 2).map((link, i) => (
+            {links.slice(0, 4).map((link) => (
               <li key={link.label}>
                 <Link
                   href={link.href}
@@ -122,19 +124,6 @@ export default function Navbar() {
                 </Link>
               </li>
             ))}
-
-            {/* Çalışma Alanları */}
-            <li>
-              <Link
-                href="/calisma-alanlari"
-                className={`font-sans text-sm font-medium transition-colors hover:text-[#1a5fa5] relative group ${
-                  scrolled ? "text-[#0a2444]" : "text-white/90"
-                } ${pathname === "/calisma-alanlari" ? "text-[#1a5fa5]" : ""}`}
-              >
-                {lang === "tr" ? "Çalışma Alanları" : "Research Areas"}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#1a5fa5] transition-all duration-300 group-hover:w-full" />
-              </Link>
-            </li>
 
             {/* Çözüm Ortakları dropdown */}
             <li
@@ -186,10 +175,10 @@ export default function Navbar() {
             {/* İletişim */}
             <li>
               <Link
-                href="/#contact"
+                href="/iletisim"
                 className={`font-sans text-sm font-medium transition-colors hover:text-[#1a5fa5] relative group ${
                   scrolled ? "text-[#0a2444]" : "text-white/90"
-                }`}
+                } ${pathname === "/iletisim" ? "text-[#1a5fa5]" : ""}`}
               >
                 {lang === "tr" ? "İletişim" : "Contact"}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#1a5fa5] transition-all duration-300 group-hover:w-full" />
@@ -218,7 +207,7 @@ export default function Navbar() {
             </button>
 
             <Link
-              href="/#contact"
+              href="/iletisim"
               className="hidden sm:inline-flex items-center gap-2 bg-[#1a5fa5] text-white font-sans text-sm font-medium px-4 py-2 rounded-full hover:bg-[#0a2444] transition-colors duration-200"
             >
               {lang === "tr" ? "Bize Ulaşın" : "Contact Us"}
@@ -250,7 +239,7 @@ export default function Navbar() {
             className="lg:hidden bg-white border-t border-[#dce8f7] overflow-hidden"
           >
             <div className="px-4 py-6 flex flex-col gap-1">
-              {links.slice(0, 3).map((link) => (
+              {links.slice(0, 4).map((link) => (
                 <Link
                   key={link.label}
                   href={link.href}
@@ -299,7 +288,7 @@ export default function Navbar() {
 
               {/* İletişim */}
               <Link
-                href="/#contact"
+                href="/iletisim"
                 onClick={() => setMenuOpen(false)}
                 className="font-sans text-base font-medium text-[#0a2444] hover:text-[#1a5fa5] transition-colors py-2.5"
               >
@@ -314,7 +303,7 @@ export default function Navbar() {
                   {lang === "tr" ? "EN" : "TR"}
                 </button>
                 <Link
-                  href="/#contact"
+                  href="/iletisim"
                   onClick={() => setMenuOpen(false)}
                   className="bg-[#1a5fa5] text-white font-sans text-sm font-medium px-4 py-2 rounded-full hover:bg-[#0a2444] transition-colors"
                 >

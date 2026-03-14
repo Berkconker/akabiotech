@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { ExternalLink } from "lucide-react";
 import { useLang } from "@/context/LanguageContext";
@@ -7,6 +8,7 @@ import { useLang } from "@/context/LanguageContext";
 interface Brand {
   name: string;
   initials: string;
+  logo: string;
   url: string;
   color: string;
   tr: string;
@@ -17,6 +19,7 @@ const brands: Brand[] = [
   {
     name: "Sciex",
     initials: "SX",
+    logo: "https://akabiotech.com/wp-content/uploads/2020/03/sciex.png",
     url: "https://sciex.com",
     color: "#0a2444",
     tr: "Biyofarma ve genetik analizlerde kapiler elektroforez sistemleri",
@@ -25,6 +28,7 @@ const brands: Brand[] = [
   {
     name: "Sony Biotechnology",
     initials: "SB",
+    logo: "https://akabiotech.com/wp-content/uploads/2020/04/ahah.png",
     url: "https://sonybiotechnology.com",
     color: "#1a5fa5",
     tr: "Yeni nesil flow cytometry ve hücre ayırma çözümleri",
@@ -33,6 +37,7 @@ const brands: Brand[] = [
   {
     name: "Berthold Technologies",
     initials: "BT",
+    logo: "https://akabiotech.com/wp-content/uploads/2020/05/denemeler.jpg",
     url: "https://berthold.com",
     color: "#2d7fc5",
     tr: "Mikroplak okuyucu ve in vivo görüntüleme sistemleri",
@@ -41,6 +46,7 @@ const brands: Brand[] = [
   {
     name: "Revvity",
     initials: "RV",
+    logo: "https://akabiotech.com/wp-content/uploads/2024/03/logo-revinity.png",
     url: "https://revvity.com",
     color: "#0a2444",
     tr: "Otomatik hücre sayım ve imaj sitometri sistemleri",
@@ -49,6 +55,7 @@ const brands: Brand[] = [
   {
     name: "Liconic Instruments",
     initials: "LI",
+    logo: "https://akabiotech.com/wp-content/uploads/2020/03/liconic.png",
     url: "https://liconic.com",
     color: "#1a5fa5",
     tr: "Tam otomatik biyobanka ve depolama platformları",
@@ -57,6 +64,7 @@ const brands: Brand[] = [
   {
     name: "Applied BioPhysics",
     initials: "AB",
+    logo: "https://akabiotech.com/wp-content/uploads/2020/03/applied.png",
     url: "https://biophysics.com",
     color: "#2d7fc5",
     tr: "Nobel ödüllü empedans temelli hücre algılama teknolojisi",
@@ -65,6 +73,7 @@ const brands: Brand[] = [
   {
     name: "Applied Photophysics",
     initials: "AP",
+    logo: "https://akabiotech.com/wp-content/uploads/2020/05/app-son.jpg",
     url: "https://photophysics.com",
     color: "#0a2444",
     tr: "Biyomoleküllerin biyofiziksel karakterizasyonu için sistemler",
@@ -73,6 +82,7 @@ const brands: Brand[] = [
   {
     name: "Bertin Instruments",
     initials: "BI",
+    logo: "https://akabiotech.com/wp-content/uploads/2024/03/bertin-logo.png",
     url: "https://bertin-instruments.com",
     color: "#1a5fa5",
     tr: "Biyolojik örnek homojenizasyon ve işleme sistemleri",
@@ -81,12 +91,37 @@ const brands: Brand[] = [
   {
     name: "Diagenode",
     initials: "DG",
+    logo: "https://akabiotech.com/wp-content/uploads/2020/03/diagen.png",
     url: "https://diagenode.com",
     color: "#2d7fc5",
     tr: "Epigenetik araştırmalarda kapsamlı cihaz çözümleri",
     en: "Comprehensive instrument solutions for epigenetic research",
   },
 ];
+
+function BrandLogo({ brand }: { brand: Brand }) {
+  const [failed, setFailed] = useState(false);
+  if (failed) {
+    return (
+      <div
+        className="w-16 h-12 rounded-lg flex items-center justify-center text-white font-serif text-sm font-bold flex-shrink-0"
+        style={{ backgroundColor: brand.color }}
+      >
+        {brand.initials}
+      </div>
+    );
+  }
+  return (
+    <div className="w-16 h-12 bg-white border border-[#dce8f7] rounded-lg p-2 flex items-center justify-center flex-shrink-0">
+      <img
+        src={brand.logo}
+        alt={brand.name}
+        className="max-h-8 w-auto object-contain"
+        onError={() => setFailed(true)}
+      />
+    </div>
+  );
+}
 
 export default function CihazlarContent() {
   const { lang } = useLang();
@@ -107,7 +142,7 @@ export default function CihazlarContent() {
                 {lang === "tr" ? "Ana Sayfa" : "Home"}
               </a>
               <span>/</span>
-              <span>{lang === "tr" ? "Çözüm Ortakları" : "Solution Partners"}</span>
+              <span>{lang === "tr" ? "Distribütörler" : "Distributors"}</span>
               <span>/</span>
               <span className="text-[#7ab3e0]">
                 {lang === "tr" ? "Cihazlar" : "Instruments"}
@@ -145,24 +180,19 @@ export default function CihazlarContent() {
                 <div className="p-7 flex flex-col gap-5">
                   {/* Logo + name row */}
                   <div className="flex items-center gap-4">
-                    <div
-                      className="w-12 h-12 rounded-xl flex items-center justify-center text-white font-serif text-sm font-bold flex-shrink-0"
-                      style={{ backgroundColor: brand.color }}
-                    >
-                      {brand.initials}
-                    </div>
+                    <BrandLogo brand={brand} />
                     <div>
                       <h3 className="font-serif text-lg text-[#0a2444] leading-tight">
                         {brand.name}
                       </h3>
                       <a
-                        href={`https://${brand.url.replace("https://", "")}`}
+                        href={brand.url}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="font-sans text-xs text-[#1a5fa5]/70 hover:text-[#1a5fa5] transition-colors"
                         onClick={(e) => e.stopPropagation()}
                       >
-                        {brand.url.replace("https://", "")}
+                        {brand.url.replace(/^https?:\/\//, "")}
                       </a>
                     </div>
                   </div>

@@ -229,14 +229,14 @@ export default function Hero() {
               transition={{ duration: 0.7, delay: 0.3 }}
             >
               <a
-                href="#research"
+                href="/calisma-alanlari"
                 className="inline-flex items-center justify-center gap-2 bg-[#1a5fa5] hover:bg-[#2d7fc5] text-white font-sans font-medium px-7 py-3.5 rounded-full transition-all duration-300 hover:gap-3 group"
               >
                 {t.cta1}
                 <ArrowRight size={16} className="transition-transform group-hover:translate-x-1" />
               </a>
               <a
-                href="#contact"
+                href="/iletisim"
                 className="inline-flex items-center justify-center gap-2 border border-white/30 hover:border-white/60 text-white font-sans font-medium px-7 py-3.5 rounded-full transition-all duration-300 hover:bg-white/10"
               >
                 {t.cta2}
